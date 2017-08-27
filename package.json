@@ -1,0 +1,30 @@
+{
+  "name": "6.5-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest "
+  },
+  "author": "Will Bruce",
+  "license": "ISC",
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-flash-messages": "^0.1.1",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "supertest": "^3.0.0"
+  }
+}

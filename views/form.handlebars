@@ -1,0 +1,33 @@
+<h1>Add/Edit A Snippet</h1>
+
+<!-- Need to:
+    -add action to form
+    -use handlebars
+-->
+
+
+<div class="container col m12">
+    <form class="col m12" action="/{{_id}}" method="post">
+      <div class="row">
+        <div class="input-field col m8">
+          <label>Title:</label>
+          <br>
+          <input type="text" name="title" value="{{title}}">
+          <br>
+          <label>Language:</label>
+          <br>
+          <input type="text" name="language" value="{{language}}">
+          <br>
+          <label>Snippet:</label>
+          <textarea class="form-control" rows="5" name="{{body}}"></textarea>
+          <br>
+          <label>Notes:</label>
+          <textarea class="form-control" rows="3" name="{{notes}}"></textarea>
+          <label>Tags:</label>
+          <textarea class="form-control" name="{{tags}}" rows="2"></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+</div>
