@@ -9,20 +9,23 @@ const HomeController = {
   Snippet.find({'username': username}).then(function(snippets){
     res.render('index', {snippets: snippets});
   });
-  // // const username = req.user.username;
-  // // User.findOne({'username': username}).then(function(user){
-  // //   res.render('index', {user: user});
-  // //   return;
-  // });
+},
+  profile: function(req, res){
+    const snippetId = req.params.id;
+
+    Snippet.findOne({'_id': snippetId}).then(function(snippet){
+        res.render('profile', {snippet: snippet});
+    });
   },
+
   form: function(req, res) {
     const snippetId = req.params.id;
-    if(!snippetId){
+    if(!snippetId){                     //if there is no snippetId then render blank add form
       res.render('form');
       return;
     }
     Snippet.findOne({'_id': snippetId}).then(function(snippet){
-      res.render('form', snippet);
+      res.render('form', snippet);                            //if there is a snippetId render edit page with snippet details
     });
   },
   add: function(req, res) {
@@ -50,7 +53,7 @@ const HomeController = {
   },
   edit: function(req, res){
     const title = req.body.title;
-    const body = req.body.body;
+    const body = decodeURI(req.body.body);
     const notes = req.body.notes;
     const language = req.body.language;
     const tags = req.body.tags;
@@ -80,12 +83,18 @@ const HomeController = {
     req.session.destroy(function(){
       res.redirect('/login');
     });
+  },
+  search: function(req, res){
+    console.log('search is firing');
+
+    const language = req.body.searchLang;
+    console.log(language);
+
+    Snippet.find({'language': language}).then(function(snippets){
+      res.render('index', {snippets: snippets});
+    });
   }
 
 };
 
 module.exports = HomeController;
-
-
-
-//TODO add user to snippets schema

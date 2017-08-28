@@ -68,7 +68,8 @@ passport.deserializeUser(function(id, done) {
 
 //Middleware
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.use(session({
     secret: 'snippets for days',   //salt used to generate tokens

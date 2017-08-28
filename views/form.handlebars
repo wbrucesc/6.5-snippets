@@ -1,9 +1,5 @@
 <h1 class="well">{{#if _id}}Edit{{else}}Add{{/if}} Snippet</h1>
 
-<!-- Need to:
-    -add action to form
-    -use handlebars
--->
 
 
 <div class="container col m12">
@@ -20,10 +16,10 @@
           <br>
           <label>Snippet:</label>
           <br>
-          <input type="text" class="form-control" rows="5" name="body" value="{{body}}"></input>
+          <textarea type="text" class="form-control" rows="5" name="body">{{body}}</textarea>
           <br>
           <label>Notes:</label>
-          <input type="text" class="form-control" rows="3" name="notes" value="{{notes}}"></input>
+          <input type="text" class="form-control" name="notes" value="{{notes}}"></input>
           <label>Tags:</label>
           <input type="text" class="form-control" name="tags" value="{{tags}}" rows="2"></input>
           <br>
