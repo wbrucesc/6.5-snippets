@@ -1,4 +1,4 @@
-<h1>Add/Edit A Snippet</h1>
+<h1 class="well">{{#if _id}}Edit{{else}}Add{{/if}} Snippet</h1>
 
 <!-- Need to:
     -add action to form
@@ -9,7 +9,7 @@
 <div class="container col m12">
     <form class="col m12" action="/{{_id}}" method="post">
       <div class="row">
-        <div class="input-field col m8">
+        <div class="input-field col m8 well">
           <label>Title:</label>
           <br>
           <input type="text" name="title" value="{{title}}">
@@ -19,14 +19,19 @@
           <input type="text" name="language" value="{{language}}">
           <br>
           <label>Snippet:</label>
-          <textarea class="form-control" rows="5" name="{{body}}"></textarea>
+          <br>
+          <input type="text" class="form-control" rows="5" name="body" value="{{body}}"></input>
           <br>
           <label>Notes:</label>
-          <textarea class="form-control" rows="3" name="{{notes}}"></textarea>
+          <input type="text" class="form-control" rows="3" name="notes" value="{{notes}}"></input>
           <label>Tags:</label>
-          <textarea class="form-control" name="{{tags}}" rows="2"></textarea>
+          <input type="text" class="form-control" name="tags" value="{{tags}}" rows="2"></input>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          {{#if _id}}
+          <label>Snippet created by: {{username}}</label>
+          {{/if}}
+          <br>
+          <button type="submit" class="btn btn-primary">{{#if _id}}Update{{else}}Create{{/if}}</button>
         </div>
       </div>
     </form>

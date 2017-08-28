@@ -9,6 +9,7 @@ const passport = require('passport'),
 
 const router = require('./routes');
 const User = require('./models/user');
+const Snippet = require('./models/snippets');
 
 const app = express();
 

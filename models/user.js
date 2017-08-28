@@ -4,13 +4,13 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, lowercase: true, required: true },
   passwordHash: { type: String, required: true },
-  properties: {
-    title: [{type: String}],
-    body: [{type: String}],
-    notes: [{type: String}],
-    language: [{type: String}],
-    tags: Array
-  }
+  // properties: {
+  //   title: [{type: String}],
+  //   body: [{type: String}],
+  //   notes: [{type: String}],
+  //   language: [{type: String}],
+  //   tags: Array
+  // }
 });
 
 userSchema.virtual('password')
