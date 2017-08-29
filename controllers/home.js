@@ -33,7 +33,8 @@ const HomeController = {
     const body = req.body.body;
     const notes = req.body.notes;
     const language = req.body.language;
-    const tags = req.body.tags;
+    const tags = req.body.tags.trim();
+    const tagArray = tags.split(',');
     const username = req.user.username;
     console.log(username);
 
@@ -42,7 +43,7 @@ const HomeController = {
       language: language,
       body: body,
       notes: notes,
-      tags: tags,
+      tags: tagArray,
       username: username
     });
 
@@ -56,7 +57,8 @@ const HomeController = {
     const body = decodeURI(req.body.body);
     const notes = req.body.notes;
     const language = req.body.language.trim().toLowerCase();
-    const tags = req.body.tags;
+    const tags = req.body.tags.trim();
+    const tagArray = tags.split();
     const username = req.user.username;
 
     const snippetId = req.params.id;
@@ -66,7 +68,7 @@ const HomeController = {
       language: language,
       body: body,
       notes: notes,
-      tags: tags,
+      tags: tagArray,
       username: username
     }}).then(function(){
       res.redirect('/');
@@ -87,7 +89,7 @@ const HomeController = {
   search: function(req, res){
     console.log('search is firing');
 
-    const language = req.body.searchLang;
+    const language = req.body.searchLang.toLowerCase();
     console.log(language);
 
     Snippet.find({'language': language}).then(function(snippets){

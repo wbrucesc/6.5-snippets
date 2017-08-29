@@ -5,7 +5,7 @@ const snippetSchema = new mongoose.Schema({
     body: {type: String, required: true},
     notes: {type: String},
     language: {type: String, trim: true, lowercase: true, required: true},
-    tags: Array,
+    tags:  [{type: String, trim: true, lowercase: true}],
     username: String
 });
 
