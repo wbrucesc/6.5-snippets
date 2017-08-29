@@ -58,7 +58,7 @@ const HomeController = {
     const notes = req.body.notes;
     const language = req.body.language.trim().toLowerCase();
     const tags = req.body.tags.trim();
-    const tagArray = tags.split();
+    const tagArray = tags.split(',');
     const username = req.user.username;
 
     const snippetId = req.params.id;
@@ -87,12 +87,18 @@ const HomeController = {
     });
   },
   search: function(req, res){
-    console.log('search is firing');
 
     const language = req.body.searchLang.toLowerCase();
-    console.log(language);
 
     Snippet.find({'language': language}).then(function(snippets){
+      res.render('index', {snippets: snippets});
+    });
+  },
+  tagsearch: function(req, res){
+    const tag = req.body.searchTag.toLowerCase().trim();
+    const username = req.user.username;
+
+    Snippet.find({$and: [{'username': username}, {tags: {$in: [tag]}}]}).then(function(snippets){
       res.render('index', {snippets: snippets});
     });
   }

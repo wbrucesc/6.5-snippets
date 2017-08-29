@@ -25,10 +25,11 @@ homeRouter.get('/add', HomeController.form);   //when add button clicked takes y
 homeRouter.get('/:id/delete', HomeController.delete); //deletes snippet when delete button clicked
 homeRouter.get('/:id/edit', HomeController.form);   //when edit button clicked takes you to form
 homeRouter.post('/search', HomeController.search);
+homeRouter.post('/tagsearch', HomeController.tagsearch);
 homeRouter.post('/:id', HomeController.edit);
 homeRouter.get('/signOut', HomeController.out); //when sign out button clicked this triggers out
                                                 //which destroys session and redirects to login page
-//changed to .post @ 3:20
+                                                //changed to .post @ 3:20
 homeRouter.get('/view/:id', HomeController.profile);
 
 //User routes
