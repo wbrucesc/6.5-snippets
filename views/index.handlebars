@@ -1,44 +1,49 @@
 <h1 class="jumbotron">Welcome to Snippet Space</h1>
 
 <div class="col-md-6">
-  <div class="input-group">
-    <form action="/search" method="post">
+
+  <form class="form-inline" action="/search" method="post">
+    <div class="input-group">
       <input type="text" class="form-control" name="searchLang" placeholder="Search by Language">
-      <button type="submit" class="btn btn-default" type="button">Search</button>
-    </form>
-  </div>
+      <span class="input-group-btn ">
+        <button type="submit" class="btn btn-default search" type="button">Search</button>
+        <a href="/" class="btn btn-warning center">View All</a>
+      </span>
+    </div>
+  </form>
+
 </div>
 
 <a href="/add" class="btn btn-primary pull-right" id="add-button">Add a Snippet</a>
 <br>
 <hr>
 
-<div class="container-fluid">
+<div class="container-fluid-1">
   <div class="row">
-    <div class="side-bar col-md-4 pull-left">
-      <h1>side</h1>
-      <!-- <select name="language" class="custom-select">
+    <!-- <div class="side-bar col-md-4 pull-left">
+      <h1>side</h1> -->
+    <!-- <select name="language" class="custom-select">
         <option selected>Select Snippet Language</option>
           <option value="html">HTML</option>
           <option value="css">CSS</option>
           <option value="js">JavaScript</option>
       </select> -->
-    </div>
-    {{#each snippets}}
-      <div class="snip col-md-8 pull-right well">
-        <h2 class="well">{{title}}</h1>
-        <h3>{{language}}</h2>
-        <h4 class="well">{{body}}</h3>
+  {{#each snippets}}
+    <div class="snip col-md-8 well homeSnip">
+        <h2 class="well snip-title">{{title}}</h1>
+        <br>
+        <h3 class="well whatLang">{{language}}</h3>
+        <h4 class="well textbox">{{body}}</h3>
         <h5>Notes: {{notes}}</h4>
         <h6>Tags: {{tags}}</h5>
-        <h6>Created By: {{username}}</h6>
+        <h6>Created by: {{username}}</h6>
         <br>
         <a href="/{{_id}}/delete" class="btn btn-danger pull-right">Delete</a>
         <a href="/{{_id}}/edit" class="btn btn-primary pull-right">Edit</a>
-        <a href="/{{_id}}/view" class="btn btn-success pull-left">View</a>
+        <a href="/view/{{_id}}" class="btn btn-success pull-left">View</a>
       </div>
     {{/each}}
   </div>
 </div>
 
-<a href="/signOut" class="btn btn-danger pull-right">Sign Out</a>
+<a href="/signOut" class="btn btn-danger pull-right sign-out">Sign Out</a>

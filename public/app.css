@@ -1,8 +1,60 @@
+body {
+  background-color: #e5e6eb;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+.search {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
 #add-button {
   margin-right: 30px;
 }
 
+.container-fluid-1 {
+  width: 80%;
+}
+
 .snip {
   border: 2px solid #333;
-  margin: 20px auto;
+  margin: 20px 30%;
+}
+
+.whatLang {
+  text-transform: capitalize;
+  display: inline-block;
+  margin-top: 0;
+  background-color: #f5f5dc;
+}
+
+.snip-title {
+  text-transform: capitalize;
+  background-color: #5bc0de;
+  color: white;
+}
+
+.textbox {
+  background-color: #f5f5dc;
+}
+
+.profSnip {
+  margin: 100px 25% 0 25%;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 10px 30px 30px 30px;
+  background-color: #fff;
+}
+
+.home {
+  margin: 30px 48%;
+}
+
+.sign-out {
+  margin: 1% 45%;
 }

@@ -14,7 +14,7 @@ const HomeController = {
     const snippetId = req.params.id;
 
     Snippet.findOne({'_id': snippetId}).then(function(snippet){
-        res.render('profile', {snippet: snippet});
+        res.render('profile', snippet);
     });
   },
 
@@ -55,7 +55,7 @@ const HomeController = {
     const title = req.body.title;
     const body = decodeURI(req.body.body);
     const notes = req.body.notes;
-    const language = req.body.language;
+    const language = req.body.language.trim().toLowerCase();
     const tags = req.body.tags;
     const username = req.user.username;
 
