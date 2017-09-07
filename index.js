@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   session = require('express-session'),
@@ -13,7 +14,7 @@ const Snippet = require('./models/snippets');
 
 const app = express();
 
-const database = process.env.MONGODB_URI || 'mongodb://localhost:27017/test';
+const database = process.env.MONGODB_URI || 'mongodb://localhost:27017/snippetTest';
 mongoose.connect(database);
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));

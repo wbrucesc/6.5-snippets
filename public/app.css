@@ -2,6 +2,16 @@ body {
   background-color: #e5e6eb;
 }
 
+#to-signup {
+  margin-left: 86px;
+  margin-top: 20px;
+}
+
+#to-login {
+  margin-left: 86px;
+  margin-top: 20px;
+}
+
 .jumbotron {
   text-align: center;
   background-color: #5cb85c;
